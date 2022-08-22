@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
-import { MoviesContext } from "../../contexts/moviesContext";
+import { Context } from "../../contexts/context";
 
 const RemoveFromFavoritesIcon = ({ movie }) => {
-  const context = useContext(MoviesContext);
+  const context = useContext(Context);
 
   const handleRemoveFromFavorites = (e) => {
     e.preventDefault();

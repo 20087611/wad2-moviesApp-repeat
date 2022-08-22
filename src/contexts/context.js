@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 
-export const MoviesContext = React.createContext(null);
+export const Context = React.createContext(null);
 
-const MoviesContextProvider = (props) => {
-  const [myReviews, setMyReviews] = useState( {} ) 
-  const [favorites, setFavorites] = useState( [] )
+const ContextProvider = (props) => {
+  const [myReviews, setMyReviews] = useState( {} );
+  const [favorites, setFavorites] = useState( [] );
   const [playlist, setPlaylist] = useState( [] );
+  const [likes, setLikes] = useState( [] );
 
 
   // add movies to favorite list
@@ -47,21 +48,43 @@ const MoviesContextProvider = (props) => {
     ) )
   };
 
+
+  //Add a person you like into the Likes list
+  const addToLikes = (person) => {
+    let newLikes = [];
+    if (!likes.includes(person.id)) {
+      newLikes = [...likes, person.id];
+    } else{
+      newLikes = likes;
+    }
+    setLikes(newLikes)
+  };
+  //Remove a person from the Likes list
+  const removeFromLikes = (person) => {
+    setLikes( likes.filter(
+      (aId) => aId !== person.id
+    ) )
+  };
+
+
   return (
-    <MoviesContext.Provider
+    <Context.Provider
       value={{
         favorites,
         playlist,
+        likes,
         addToFavorites,
         removeFromFavorites,
         addReview,
         addToPlaylist,
-        removeFromPlaylist
+        removeFromPlaylist,
+        addToLikes,
+        removeFromLikes
       }}
     >
       {props.children}
-    </MoviesContext.Provider>
+    </Context.Provider>
   );
 };
 
-export default MoviesContextProvider;
+export default ContextProvider;

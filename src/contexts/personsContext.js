@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
-export const PersonsContext = React.createContext(null);
+export const Context = React.createContext(null);
 
-const PersonsContextProvider = (props) => {
+const ContextProvider = (props) => {
   const [likes, setLikes] = useState( [] )
 
   //Add a person you like into the Likes list
@@ -15,7 +15,6 @@ const PersonsContextProvider = (props) => {
     }
     setLikes(newLikes)
   };
-  
   //Remove a person from the Likes list
   const removeFromLikes = (person) => {
     setLikes( likes.filter(
@@ -24,7 +23,7 @@ const PersonsContextProvider = (props) => {
   };
 
   return (
-    <PersonsContext.Provider
+    <Context.Provider
       value={{
         likes,
         addToLikes,
@@ -32,8 +31,8 @@ const PersonsContextProvider = (props) => {
       }}
     >
       {props.children}
-    </PersonsContext.Provider>
+    </Context.Provider>
   );
 };
 
-export default PersonsContextProvider;
+export default ContextProvider;

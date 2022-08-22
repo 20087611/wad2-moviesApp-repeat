@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { MoviesContext } from "../../contexts/moviesContext";
+import { Context } from "../../contexts/context";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
@@ -26,8 +26,8 @@ const useStyles = makeStyles({
 
 export default function MovieCard({ movie, action }) {
   const classes = useStyles();
-  const { favorites } = useContext(MoviesContext);
-  const { playlist } = useContext(MoviesContext);
+  const { favorites } = useContext(Context);
+  const { playlist } = useContext(Context);
 
   if (favorites.find((id) => id === movie.id)) {
     movie.favorite = true;

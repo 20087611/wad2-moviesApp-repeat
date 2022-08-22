@@ -4,14 +4,14 @@ import SamplePerson from "./samplePersonData";
 import { MemoryRouter } from "react-router";
 import AddToLikesIcon from "../components/cardIcons/addToLikes";
 import Grid from "@material-ui/core/Grid";
-import PersonsContextProvider from "../contexts/personsContext";
+import ContextProvider from "../contexts/Context";
 
 export default {
   title: "Home Page/PersonList",
   component: PersonList,
   decorators: [
     (Story) => <MemoryRouter initialEntries={["/"]}>{Story()}</MemoryRouter>,
-    (Story) => <PersonsContextProvider>{Story()}</PersonsContextProvider>,
+    (Story) => <ContextProvider>{Story()}</ContextProvider>,
   ],
 };
 

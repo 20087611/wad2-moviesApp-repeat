@@ -14,7 +14,7 @@ import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import CalendarIcon from "@material-ui/icons/CalendarTodayTwoTone";
 import StarRateIcon from "@material-ui/icons/StarRate";
 import img from '../../images/film-poster-placeholder.png'
-import { PersonsContext } from "../../contexts/personsContext";
+import { Context } from "../../contexts/context";
 
 const useStyles = makeStyles({
     card: { maxWidth: 345 },
@@ -26,7 +26,7 @@ const useStyles = makeStyles({
 
 export default function PersonCard({ person, action }) {
     const classes = useStyles();
-    const { likes } = useContext(PersonsContext);
+    const { likes } = useContext(Context);
 
     if (likes.find((id) => id === person.id)) {
         person.like = true;
@@ -64,10 +64,10 @@ export default function PersonCard({ person, action }) {
 
 
             <CardContent>
-                <Typography variant="h6" component="p">
+                {/* <Typography variant="h6" component="p">
                     <CalendarIcon fontSize="small" />
                     {" "}Birthday: {person.birthday}{" "}
-                </Typography>
+                </Typography> */}
 
                 <Typography variant="h6" component="p">
                     <StarRateIcon fontSize="small" />

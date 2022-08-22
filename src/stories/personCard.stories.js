@@ -2,7 +2,7 @@ import React from "react";
 import PersonCard from "../components/personCard";
 import SamplePerson from "./samplePersonData"; //Sample data about a person
 import { MemoryRouter } from "react-router";
-import PersonsContextProvider from "../contexts/personsContext";
+import ContextProvider from "../contexts/context";
 import AddToLikesIcon from "../components/cardIcons/addToLikes";
 
 export default {
@@ -10,7 +10,7 @@ export default {
   component: PersonCard,
   decorators: [
     (Story) => <MemoryRouter initialEntries={["/"]}>{Story()}</MemoryRouter>,
-    (Story) => <PersonsContextProvider>{Story()}</PersonsContextProvider>,
+    (Story) => <ContextProvider>{Story()}</ContextProvider>,
   ],
 };
 

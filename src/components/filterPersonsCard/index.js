@@ -5,8 +5,6 @@ import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
-import InputAdornment from '@material-ui/core/InputAdornment';
-import AccountCircle from '@material-ui/icons/AccountCircle';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
@@ -23,41 +21,43 @@ const useStyles = makeStyles((theme) => ({
         margin: theme.spacing(1),
         minWidth: 220,
         backgroundColor: "rgb(255, 255, 255)",
-        width:280,
-        paddingLeft:10
+        width: 280,
+        paddingLeft: 10
     },
 }));
 
 export default function FilterPersonsCard(props) {
     const classes = useStyles();
 
-    // const handleTextChange = (e, props) => {
-    //     handleChange(e, "name", e.target.value);
-    // };
+    const handleChange = (e, type, value) => {
+        e.preventDefault();
+        props.onUserInput(type, value); // NEW
+        props.onSwitchChange(type);
+    };
+    const handleTextChange = (e, props) => {
+        handleChange(e, "name", e.target.value);
+    };
+    const handleSwitchChange = (e, props) => {
+        handleChange(e, "popularity");
+    };
 
     return (
         <Card className={classes.root} variant="outlined">
             <CardContent>
-                <Typography variant="h5" component="h1" color="white">
-                    Search a person!
+                <Typography variant="h5" component="h1">
+                    Search a person or Sort
                 </Typography>
                 <TextField
                     className={classes.formControl}
                     id="filled-search"
-                    label="Search persons"
+                    label="Search actors"
                     type="search"
                     value={props.titleFilter}
-                    InputProps={{
-                        startAdornment: (
-                            <InputAdornment position="start">
-                                <AccountCircle />
-                            </InputAdornment>
-                        ),
-                    }}
                     variant="standard"
+                    onChange={handleTextChange}
                 />
                 <FormGroup className={classes.formControl}>
-                    <FormControlLabel control={<Switch defaultChecked />} label="Sorted by popularity" />
+                    <FormControlLabel control={<Switch defaultChecked onChange={handleSwitchChange}/>} label="Sorted by popularity" />
                 </FormGroup>
             </CardContent>
 
@@ -68,7 +68,7 @@ export default function FilterPersonsCard(props) {
             />
             <CardContent>
                 <Typography variant="h5" component="h1">
-                    Search a person!
+                    Search a person or Sort
                 </Typography>
             </CardContent>
         </Card>

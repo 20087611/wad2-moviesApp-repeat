@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import PageTemplate from "../components/templateMovieListPage";
-import { MoviesContext } from "../contexts/moviesContext";
+import { Context } from "../contexts/context";
 import { useQueries } from "react-query";
 import { getMovie } from "../api/tmdb-api";
 import Spinner from '../components/spinner'
@@ -8,7 +8,7 @@ import RemoveFromPlaylist from "../components/cardIcons/removeFromPlaylist";
 
 
 const PlaylistMoviesPage = () => {
-  const {playlist: movieIds } = useContext(MoviesContext);
+  const {playlist: movieIds } = useContext(Context);
 
   // Create an array of queries and run in parallel.
   const playlistMovieQueries = useQueries(
