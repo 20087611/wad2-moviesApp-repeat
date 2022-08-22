@@ -17,11 +17,11 @@ const useStyles = makeStyles((theme) => ({
     margin: 0,
   },
   tagLine: {
-    fontSize: "1.5rem",
+    fontSize: "1.2rem",
   },
 }));
 
-const MovieHeader = ( { movie, history}) => {
+const PersonHeader = ( { person, history}) => {
   const classes = useStyles();
 
   return (
@@ -31,12 +31,13 @@ const MovieHeader = ( { movie, history}) => {
       </IconButton>
 
       <Typography variant="h4" component="h3">
-        {movie.title}
-        <a href={movie.homepage}>
+        {person.name}
+        <a href={person.homepage}>
           <HomeIcon color="primary" />
         </a>
         <br />
-        <span className={classes.tagLine}>{`"${movie.tagline}"`} </span>
+        <span className={classes.tagLine}>{`"Born in ${person.birthday}"`} </span> <br />
+        <span className={classes.tagLine}>{`"Popularity: ${person.popularity}"`} </span>
       </Typography>
       <IconButton aria-label="go forward" onClick={() => history.goForward() } >
         <ArrowForwardIcon color="primary" fontSize="large" />
@@ -45,4 +46,4 @@ const MovieHeader = ( { movie, history}) => {
   );
 };
 
-export default withRouter(MovieHeader);
+export default withRouter(PersonHeader);
