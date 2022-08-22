@@ -1,7 +1,7 @@
 import React from "react";
 import PageTemplate from '../components/templateMovieListPage';
 import { getUpcomingMovies } from "../api/tmdb-api";
-import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
+import PlaylistAddIcon from '../components/cardIcons/addToPlaylist';
 import { useQuery } from 'react-query'
 import Spinner from '../components/spinner'
 
