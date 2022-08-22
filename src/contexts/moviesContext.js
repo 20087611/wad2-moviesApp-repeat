@@ -26,8 +26,11 @@ const MoviesContextProvider = (props) => {
   };
 
   const addToPlaylist = (movie) => {
-    setPlaylist([...playlist,movie.id])
-    console.log([...playlist,movie.id])
+    let newPlaylist = [];
+    if (!playlist.includes(movie.id)) {
+      newPlaylist = [...playlist, movie.id];
+    }
+    setPlaylist(newPlaylist);
   };
   const removeFromPlaylist = (movie) => {
     setPlaylist( playlist.filter(
