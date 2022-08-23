@@ -20,6 +20,8 @@ import PersonPage from "./pages/personDetailsPage"
 import PersonsPage from "./pages/personsPage"; // A new page of popular persons
 import LikesPersonsPage from "./pages/likesPersonsPage"
 
+import LoginPage from "./pages/loginPage";
+
 import ContextProvider from "./contexts/context";
 
 
@@ -58,7 +60,8 @@ const App = () => {
             <Route exact path="/persons/:id" component={PersonPage} />
             <Route path="/persons" component={PersonsPage} />
 
-
+            {/* public route */}
+            <Route exact path="/login" component={LoginPage} />
             <Route exact path="/" component={HomePage} />
             <Redirect from="*" to="/" />
           </Switch>
