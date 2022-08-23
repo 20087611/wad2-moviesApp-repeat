@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import PageTemplate from "../components/templatePersonListPage";
-import { DataContext } from "../contexts/dataContext";
+import { Context } from "../contexts/context";
 import { useQueries } from "react-query";
 import { getPerson } from "../api/tmdb-api";
 import Spinner from '../components/spinner'
@@ -8,7 +8,7 @@ import RemoveFromLikes from "../components/cardIcons/removeFromLikes";
 
 
 const LikesPersonsPage = () => {
-  const {likes: personIds } = useContext(DataContext);
+  const {likes: personIds } = useContext(Context);
 
   // Create an array of queries and run in parallel.
   const likesPersonQueries = useQueries(

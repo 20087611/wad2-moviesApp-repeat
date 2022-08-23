@@ -29,7 +29,7 @@ function PersonListPageTemplate({ persons, title, action }) {
 
   const handleChange = (type, value) => {
     if (type === "name") setNameFilter(value);
-    if (type === "popularity") setSwitchOn(!switchOn);
+    else setSwitchOn(!switchOn);
   };
 
   return (

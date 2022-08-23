@@ -11,7 +11,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
-import CalendarIcon from "@material-ui/icons/CalendarTodayTwoTone";
+// import CalendarIcon from "@material-ui/icons/CalendarTodayTwoTone";
 import StarRateIcon from "@material-ui/icons/StarRate";
 import img from '../../images/film-poster-placeholder.png'
 import { Context } from "../../contexts/context";

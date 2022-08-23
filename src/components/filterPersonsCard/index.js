@@ -29,16 +29,19 @@ const useStyles = makeStyles((theme) => ({
 export default function FilterPersonsCard(props) {
     const classes = useStyles();
 
-    const handleChange = (e, type, value) => {
+    const handleChange1 = (e, type, value) => {
         e.preventDefault();
         props.onUserInput(type, value); // NEW
+    };
+    const handleChange2 = (e, type, value) => {
+        e.preventDefault();
         props.onSwitchChange(type);
     };
     const handleTextChange = (e, props) => {
-        handleChange(e, "name", e.target.value);
+        handleChange1(e, "name", e.target.value);
     };
     const handleSwitchChange = (e, props) => {
-        handleChange(e, "popularity");
+        handleChange2(e, "popularity");
     };
 
     return (
@@ -50,7 +53,7 @@ export default function FilterPersonsCard(props) {
                 <TextField
                     className={classes.formControl}
                     id="filled-search"
-                    label="Search actors"
+                    label="Search persons"
                     type="search"
                     value={props.titleFilter}
                     variant="standard"

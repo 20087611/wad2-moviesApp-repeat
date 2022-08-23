@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
-import { Context } from "../../contexts/Context";
+import { Context } from "../../contexts/context";
 
 const RemoveFromLikesIcon = ({ person }) => {
   const context = useContext(Context);
