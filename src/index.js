@@ -21,9 +21,11 @@ import PersonsPage from "./pages/personsPage"; // A new page of popular persons
 import LikesPersonsPage from "./pages/likesPersonsPage"
 
 import LoginPage from "./pages/loginPage";
+import SignupPage from "./pages/signupPage";
 
 import ContextProvider from "./contexts/context";
-
+import PrivateRoute from "./route/privateRoute";
+import AuthProvider from "./contexts/authContext";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -39,33 +41,37 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
-        <SiteHeader />
-        <ContextProvider>
-          {" "}
-          <Switch>
+        <AuthProvider>
+          <SiteHeader />
+          <ContextProvider>
+            {" "}
+            <Switch>
 
-            <Route exact path="/reviews/form" component={AddMovieReviewPage} />
-            <Route path="/reviews/:id" component={MovieReviewPage} />
+              <PrivateRoute exact path="/reviews/form" component={AddMovieReviewPage} />
+              <PrivateRoute path="/reviews/:id" component={MovieReviewPage} />
 
 
-            <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
-            <Route exact path="/movies/nowPlaying" component={NowPlayingMoviesPage} />
-            <Route exact path="/movies/popular" component={PopularMoviesPage} />
-            <Route exact path="/movies/topRated" component={TopRatedMoviesPage} />
-            <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
-            <Route exact path="/movies/playlist" component={PlaylistMoviesPage} />
-            <Route path="/movies/:id" component={MoviePage} />
+              <PrivateRoute exact path="/movies/upcoming" component={UpcomingMoviesPage} />
+              <PrivateRoute exact path="/movies/nowPlaying" component={NowPlayingMoviesPage} />
+              <PrivateRoute exact path="/movies/popular" component={PopularMoviesPage} />
+              <PrivateRoute exact path="/movies/topRated" component={TopRatedMoviesPage} />
+              <PrivateRoute exact path="/movies/favorites" component={FavoriteMoviesPage} />
+              <PrivateRoute exact path="/movies/playlist" component={PlaylistMoviesPage} />
+              <PrivateRoute path="/movies/:id" component={MoviePage} />
 
-            <Route exact path="/persons/likes" component={LikesPersonsPage} />
-            <Route exact path="/persons/:id" component={PersonPage} />
-            <Route path="/persons" component={PersonsPage} />
+              <PrivateRoute exact path="/persons/likes" component={LikesPersonsPage} />
+              <PrivateRoute exact path="/persons/:id" component={PersonPage} />
+              <PrivateRoute path="/persons" component={PersonsPage} />
 
-            {/* public route */}
-            <Route exact path="/login" component={LoginPage} />
-            <Route exact path="/" component={HomePage} />
-            <Redirect from="*" to="/" />
-          </Switch>
-        </ContextProvider>
+              {/* public route */}
+              <Route exact path="/login" component={LoginPage} />
+              <Route exact path="/signup" component={SignupPage} />
+              <Route exact path="/" component={HomePage} />
+              <Redirect from="*" to="/" />
+            </Switch>
+          </ContextProvider>
+        </AuthProvider>
+
       </BrowserRouter>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
