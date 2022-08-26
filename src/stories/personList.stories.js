@@ -4,7 +4,7 @@ import SamplePerson from "./samplePersonData";
 import { MemoryRouter } from "react-router";
 import AddToLikesIcon from "../components/cardIcons/addToLikes";
 import Grid from "@material-ui/core/Grid";
-import ContextProvider from "../contexts/Context";
+import ContextProvider from "../contexts/context";
 
 export default {
   title: "Home Page/PersonList",

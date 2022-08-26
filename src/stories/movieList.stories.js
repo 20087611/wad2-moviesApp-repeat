@@ -5,7 +5,7 @@ import { MemoryRouter } from "react-router";
 import { action } from "@storybook/addon-actions";
 import AddToFavoritesIcon from "../components/cardIcons/addToFavorites";
 import Grid from "@material-ui/core/Grid";
-import ContextProvider from "../contexts/Context";
+import ContextProvider from "../contexts/context";
 
 export default {
   title: "Home Page/MovieList",

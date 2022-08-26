@@ -2,7 +2,7 @@ import React from "react";
 import MovieCard from "../components/movieCard";
 import SampleMovie from "./sampleData";
 import { MemoryRouter } from "react-router";
-import ContextProvider from "../contexts/Context";
+import ContextProvider from "../contexts/context";
 import { action } from "@storybook/addon-actions";
 import AddToFavoritesIcon from "../components/cardIcons/addToFavorites";
 

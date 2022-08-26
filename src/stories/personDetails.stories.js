@@ -2,7 +2,7 @@ import React from "react";
 import PersonDetails from "../components/personDetails";
 import SamplePerson from "./samplePersonData";
 import { MemoryRouter } from "react-router";
-import ContextProvider from "../contexts/Context";
+import ContextProvider from "../contexts/context";
 
 export default {
   title: "Person Details Page/PersonDetails",
