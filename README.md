@@ -21,8 +21,9 @@ Name: [Daijie Liu]
 
 [ Outline any non-standard setup steps necessary to run your app locally after cloning the repo.]
 
-`npm install` to load reqiured packages.
-`npm start` to start the app.
+`npm install` to load reqiured packages.  
+`npm start` to start the app.  
+`npm run storybook` to run storybook.  
 ## API endpoints.
 
 [ List the __additional__ TMDB endpoints used, giving the description and pathname for each one.] 
@@ -46,7 +47,7 @@ Name: [Daijie Liu]
 [ Screenshots of the __new/modified app pages__. ]
 
 > Get a list of movies in theatres.
-![ ](./images/nowPalyingMoviesView.png)
+![ ](./images/nowPlayingMoviesView.png)
 
 > Get a list of the current popular movies on TMDB.
 ![ ](./images/popularMoviesView.png)
@@ -54,7 +55,7 @@ Name: [Daijie Liu]
 > Get the top rated movies on TMDB.
 ![ ](./images/topRatedMoviesView.png)
 
-> Get the list of popular people on TMDB and also click 'like' for them.
+> Get the list of popular people on TMDB, filter or sort them and also click 'like' for them.
 ![ ](./images/personsView.png)
 
 > Get a list of persons that was added in the liked list.
